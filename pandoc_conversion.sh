@@ -6,6 +6,6 @@ for f in "${arr[@]:1}"
 do
 	g="${f%.*}"
 	echo "Processing $f file..."
-	pandoc "$f" -f latex+raw_tex -t markdown -o "$g".md --markdown-headings=atx --top-level-division=chapter --citeproc --bibliography="${arr[0]}" --lua-filter tikz.lua --lua-filter keyword.lua
+	pandoc "$f" -f latex+raw_tex -t markdown -o "$g".md --markdown-headings=atx --top-level-division=chapter --citeproc --bibliography="${arr[0]}" --lua-filter tikz.lua --lua-filter my_latex_to_markdown_filter.lua
 done
 
